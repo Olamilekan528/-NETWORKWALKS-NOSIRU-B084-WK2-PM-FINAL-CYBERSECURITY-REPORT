@@ -14,8 +14,8 @@
 
 This work was carried out strictly for educational purposes as part of the Networkwalks Cybersecurity Internship. All reconnaissance activity was limited to:
 
-- **networkwalks.com** — a target the Client (Networkwalks) has explicitly authorized for this internship.
-- **My own local area network (LAN)** — owned and controlled by me.
+- **networkwalks.com** a target the Client (Networkwalks) has explicitly authorized for this internship.
+- **My own local area network (LAN)**  owned and controlled by me.
 
 A signed [Letter of Authorization](./Letter_of_Authorization_Nosiru_B084.pdf) covering these targets and dates (9–29 November 2026) is included in this repository. No exploitation, brute-forcing, or unauthorized access of any kind was attempted. All activity was passive or non-destructive reconnaissance only.
 
@@ -95,7 +95,7 @@ $ nslookup networkwalks.com
 
 ![nslookup output](images/pm1-nslookup.png)
 
-**Findings:** Resolved IP: **192.232.216.135** — matches the IP already seen in the whatweb output.
+**Findings:** Resolved IP: **192.232.216.135** matches the IP already seen in the whatweb output.
 
 **Analysis:** This confirms the domain is not hidden behind a reverse proxy or CDN (such as Cloudflare), where DNS would otherwise resolve to the proxy's IP rather than the real server. Since both tools returned the same address, the server observed is very likely the actual origin server.
 
@@ -191,7 +191,7 @@ z55.datawarehouse.fabric.microsoft.com
 
 ## 6. Module 3 — Network Scanning with Zenmap (W2-PM5)
 
-**Target:** My own local area network (authorized — owned and controlled by me)
+**Target:** My own local area network (authorized owned and controlled by me)
 
 ### 6.1 Finding the Local Subnet
 
@@ -226,7 +226,7 @@ nmap -sn 10.163.184.0/24
 | 10.163.184.187 | 04-EA-56-0B-71-FB *(from `ipconfig /all`)* | My laptop |
 | 10.163.184.64 | FE:1A:4B:F7:96:50 | Another device that joined the network during testing |
 
-**Note:** An initial scan found 2 hosts up; a later re-scan found 3, after a new device joined the Wi-Fi network. This reflects a real, expected characteristic of live networks — host counts can change between scans as devices connect and disconnect — and the most recent scan was used for this report.
+**Note:** An initial scan found 2 hosts up; a later re-scan found 3, after a new device joined the Wi-Fi network. This reflects a real, expected characteristic of live networks host counts can change between scans as devices connect and disconnect and the most recent scan was used for this report.
 
 **Analysis:** A ping scan is the least intrusive form of network reconnaissance: it identifies which hosts are alive without probing any of their ports or services. This is typically the first step before any further authorized scanning.
 
@@ -244,11 +244,11 @@ During Module 2 (theHarvester), I initially mistyped the target domain as `miscr
 
 ## 8. Summary and Key Takeaways
 
-- **Passive reconnaissance is powerful precisely because it is invisible** — every tool in Modules 1 and 2 only read information the targets had already made public, without the targets ever knowing they were being studied.
-- **Findings compound across tools.** The HostGator hosting provider was independently confirmed through whois (Section 4.1) and again through the SPF record's `websitewelcome.com` reference (Section 4.6) — cross-checking findings this way builds confidence in a conclusion.
+- **Passive reconnaissance is powerful precisely because it is invisible** every tool in Modules 1 and 2 only read information the targets had already made public, without the targets ever knowing they were being studied.
+- **Findings compound across tools.** The HostGator hosting provider was independently confirmed through whois (Section 4.1) and again through the SPF record's `websitewelcome.com` reference (Section 4.6) cross-checking findings this way builds confidence in a conclusion.
 - **A confirmed WAF (ModSecurity) reframes every other finding** as "what is visible through a protective layer" rather than unfiltered ground truth.
-- **Exact version numbers matter far more than tool/software categories** — they are the actual lookup key into vulnerability databases.
-- **Network host counts are not static** — a ping scan is a snapshot in time, and re-scanning the same subnet can legitimately return different results.
+- **Exact version numbers matter far more than tool/software categories** they are the actual lookup key into vulnerability databases.
+- **Network host counts are not static** a ping scan is a snapshot in time, and re-scanning the same subnet can legitimately return different results.
 - All testing in this report stayed strictly within the scope defined in the accompanying Letter of Authorization.
 
 ---
